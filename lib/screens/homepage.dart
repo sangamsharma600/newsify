@@ -41,8 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     return BlogTile(
                       author: document!["author"],
                       desc: document["body"],
-                      imageUrl:
-                          "https://upload.wikimedia.org/wikipedia/commons/7/77/Cosmic_Background_Imager.jpeg",
+                      imageUrl: document["image"],
                       title: document['title'],
                     );
                   });
