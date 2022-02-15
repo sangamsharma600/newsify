@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BlogTile extends StatelessWidget {
@@ -6,6 +7,7 @@ class BlogTile extends StatelessWidget {
   final String desc;
   final String author;
 
+  // ignore: use_key_in_widget_constructors
   const BlogTile(
       {required this.imageUrl,
       required this.desc,
@@ -19,7 +21,14 @@ class BlogTile extends StatelessWidget {
       child: Column(children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(6),
-          child: Image.network(imageUrl),
+          child: CachedNetworkImage(
+            imageUrl: imageUrl,
+            placeholder: (context, url) => const CircularProgressIndicator(),
+            errorWidget: (context, url, error) => const Icon(
+              Icons.error,
+              color: Colors.red,
+            ),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5.0),
@@ -28,8 +37,8 @@ class BlogTile extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const CircleAvatar(
-                    child: Text("A"),
+                  CircleAvatar(
+                    child: Text(author[0].toString()),
                     backgroundColor: Colors.white38,
                   ),
                   Text(author != 'null' ? author : 'Anonymous'),
