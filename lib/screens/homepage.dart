@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){},),
       appBar: AppBar(
         // foregroundColor: Colors.white,
         backgroundColor: Colors.white,
@@ -43,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       desc: document["body"],
                       imageUrl: document["image"],
                       title: document['title'],
+                      timestamp: document.data().toString().contains('timestamp')?document.get('timestamp'):"",
                     );
                   });
           }
