@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
 bool isNewsLiked = false;
 int year = DateTime.now().year;
 int hourInMin = 60 * DateTime.now().hour;
 int minutes = hourInMin + DateTime.now().minute;
+
+var description;
 
 class BlogTile extends StatefulWidget {
   final String imageUrl;
@@ -23,13 +24,16 @@ class BlogTile extends StatefulWidget {
       required this.author,
       required this.timestamp});
 
+
   @override
   State<BlogTile> createState() => _BlogTileState();
 }
 
 class _BlogTileState extends State<BlogTile> {
+
   @override
   Widget build(BuildContext context) {
+    description = widget.desc;
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       child: Column(children: [

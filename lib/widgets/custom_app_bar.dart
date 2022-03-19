@@ -8,6 +8,7 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
+        SizedBox(width: 30,),
         Text(
           'News',
           style: TextStyle(color: Colors.red),
