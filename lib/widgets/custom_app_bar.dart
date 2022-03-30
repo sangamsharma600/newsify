@@ -8,14 +8,14 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-        SizedBox(width: 30,),
+        SizedBox(width: 20,),
         Text(
           'News',
-          style: TextStyle(color: Colors.red),
+          style: TextStyle(color: Colors.red,letterSpacing: 1.1),
         ),
         Text(
           'Ify',
-          style: TextStyle(color: Colors.blue),
+          style: TextStyle(color: Colors.blue,letterSpacing: 1.1),
         )
       ],
     );

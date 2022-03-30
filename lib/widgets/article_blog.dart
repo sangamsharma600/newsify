@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 
 bool isNewsLiked = false;
@@ -24,7 +25,6 @@ class BlogTile extends StatefulWidget {
       required this.author,
       required this.timestamp});
 
-
   @override
   State<BlogTile> createState() => _BlogTileState();
 }
@@ -43,8 +43,26 @@ class _BlogTileState extends State<BlogTile> {
             width: double.infinity,
             child: CachedNetworkImage(
               imageUrl: widget.imageUrl,
-              placeholder: (context, url) =>
-                  const SizedBox(width: 50, child: LinearProgressIndicator()),
+              placeholder: (context, url) => SizedBox(
+                width: 50,
+                child: SizedBox(
+                  height: 200,
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "News",
+                        style: GoogleFonts.pacifico(fontSize: 30,color: Colors.red),
+                      ),
+                      Text(
+                        "Ify",
+                        style: GoogleFonts.pacifico(fontSize: 30,color: Colors.blue),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               errorWidget: (context, url, error) => const Icon(
                 Icons.error,
                 color: Colors.red,
@@ -77,7 +95,8 @@ class _BlogTileState extends State<BlogTile> {
                   IconButton(
                     icon: const Icon(Icons.share),
                     onPressed: () {
-                      Share.share("${widget.title}\n\n${widget.desc}\n\n\nGet Newsify at https://www.facebook.com/sangamsharma600");
+                      Share.share(
+                          "${widget.title}\n\n${widget.desc}\n\n\nGet Newsify at https://www.linkedin.com/sangamsharma600");
                     },
                   ),
                 ],
