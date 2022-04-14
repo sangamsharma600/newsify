@@ -9,6 +9,7 @@ int hourInMin = 60 * DateTime.now().hour;
 int minutes = hourInMin + DateTime.now().minute;
 
 var description;
+var urlLink;
 
 class BlogTile extends StatefulWidget {
   final String imageUrl;
@@ -16,6 +17,7 @@ class BlogTile extends StatefulWidget {
   final String desc;
   final String author;
   final String timestamp;
+  final String url;
 
   // ignore: use_key_in_widget_constructors
   const BlogTile(
@@ -23,7 +25,9 @@ class BlogTile extends StatefulWidget {
       required this.desc,
       required this.title,
       required this.author,
-      required this.timestamp});
+      required this.timestamp,
+      required this.url
+      });
 
   @override
   State<BlogTile> createState() => _BlogTileState();
@@ -33,7 +37,10 @@ class _BlogTileState extends State<BlogTile> {
 
   @override
   Widget build(BuildContext context) {
+
+   urlLink = widget.url;
     description = widget.desc;
+
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       child: Column(children: [
