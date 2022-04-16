@@ -21,6 +21,7 @@ dependencies:
   flutter_tts: ^3.3.3
   google_fonts: ^2.3.1
   share_plus: ^4.0.1
+  url_launcher: ^6.0.20
   webview_flutter: ^3.0.2
 
 dev_dependencies:
