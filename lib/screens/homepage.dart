@@ -1,15 +1,26 @@
 import 'dart:math';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:newsify/screens/about_us.dart';
+import 'package:newsify/screens/terms_and_conditions.dart';
 import 'package:newsify/screens/web_view_page.dart';
 import 'package:newsify/widgets/article_blog.dart';
 import 'package:newsify/widgets/custom_app_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:newsify/widgets/my_drawer.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../functions/drag_detector.dart';
 
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
 FlutterTts flutterTts = FlutterTts();
 bool isSpeechPlaying = false;
 bool isNewsScrolled = false;
+
+
+
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -23,70 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        backgroundColor: Colors.blue,
-        child: ListView(
-          children: const [
-            DrawerHeader(
-              padding: EdgeInsets.all(0),
-              child: UserAccountsDrawerHeader(
-                margin: EdgeInsets.all(0),
-                accountName: Text(
-                  'NewsIfy',
-                  style: TextStyle(fontSize: 18),
-                ),
-                accountEmail: Text(
-                  'newsify@gmail.com',
-                  style: TextStyle(fontSize: 16),
-                ),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage('https://bit.ly/3jG6JOY'),
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.info,
-                color: Colors.white,
-              ),
-              title: Text(
-                "About Us",
-                style: TextStyle(color: Colors.white, fontSize: 17),
-              ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.star,
-                color: Colors.white,
-              ),
-              title: Text(
-                "Rate Us",
-                style: TextStyle(color: Colors.white, fontSize: 17),
-              ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.mail,
-                color: Colors.white,
-              ),
-              title: Text(
-                "Contact Us",
-                style: TextStyle(color: Colors.white, fontSize: 17),
-              ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.info,
-                color: Colors.white,
-              ),
-              title: Text(
-                "Terms and Conditions",
-                style: TextStyle(color: Colors.white, fontSize: 19),
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawer: const MyDrawer(),
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.white,
         splashColor: Colors.white,
@@ -185,15 +133,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-}
-
-horizontalDrag(BuildContext context) async {
-  var randomDelay = Random();
-  await Future.delayed(
-    Duration(
-      seconds: randomDelay.nextInt(4),
-    ),
-  );
-  await Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (context) => const HomeScreen()));
 }
