@@ -33,6 +33,6 @@ class TermsAndConditions extends StatelessWidget {
           ),
         ),
       ),
-    );;
+    );
   }
 }
