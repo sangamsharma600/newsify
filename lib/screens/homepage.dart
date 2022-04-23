@@ -1,15 +1,9 @@
-import 'dart:math';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:newsify/screens/about_us.dart';
-import 'package:newsify/screens/terms_and_conditions.dart';
 import 'package:newsify/screens/web_view_page.dart';
 import 'package:newsify/widgets/article_blog.dart';
-import 'package:newsify/widgets/custom_app_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:newsify/widgets/my_drawer.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../functions/drag_detector.dart';
 
@@ -17,10 +11,6 @@ FirebaseFirestore _firestore = FirebaseFirestore.instance;
 FlutterTts flutterTts = FlutterTts();
 bool isSpeechPlaying = false;
 bool isNewsScrolled = false;
-
-
-
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -117,7 +107,8 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(
-                Icons.menu,color: Colors.blue,
+                Icons.menu,
+                color: Colors.blue,
               ),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
@@ -128,8 +119,9 @@ class _HomeScreenState extends State<HomeScreen> {
         // centerTitle: true,
         // foregroundColor: Colors.white,
         backgroundColor: Colors.transparent,
-        title: const CustomAppBar(),
+        title: Image.asset('images/NewsIfy.png',width: 130,),
         elevation: 0,
+        centerTitle: true,
       ),
     );
   }
