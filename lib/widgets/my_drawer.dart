@@ -36,13 +36,13 @@ class MyDrawer extends StatelessWidget {
               accountName: Text(
                 'NewsIfy',
                 style: TextStyle(fontSize: 18),
-              ),
+              ),  
               accountEmail: Text(
                 'newsify@gmail.com',
                 style: TextStyle(fontSize: 16),
               ),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: CachedNetworkImageProvider('https://bit.ly/3jG6JOY'),
+                backgroundImage: AssetImage("images/NewsIfy Logo.png")
               ),
             ),
           ),
