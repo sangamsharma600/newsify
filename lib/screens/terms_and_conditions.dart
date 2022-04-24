@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:newsify/contents/termsandconditions.dart';
 
-import '../contents/contents.dart';
+import '../contents/aboutus.dart';
 
 class TermsAndConditions extends StatelessWidget {
   const TermsAndConditions({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class TermsAndConditions extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                aboutUs,
+                termsandcondition,
                 style: GoogleFonts.poppins(fontSize: 19),
               )
             ],
