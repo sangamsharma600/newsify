@@ -1,7 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../screens/about_us.dart';
 import '../screens/terms_and_conditions.dart';
 
@@ -34,11 +32,11 @@ class MyDrawer extends StatelessWidget {
             child: UserAccountsDrawerHeader(
               margin: EdgeInsets.all(0),
               accountName: Text(
-                'NewsIfy',
+                'Story Day',
                 style: TextStyle(fontSize: 18),
               ),  
               accountEmail: Text(
-                'newsify@gmail.com',
+                'storyday@gmail.com',
                 style: TextStyle(fontSize: 16),
               ),
               currentAccountPicture: CircleAvatar(
@@ -73,9 +71,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            onTap: (){
-              _launchContactUsURL();
-            },
+
             leading: const Icon(
               Icons.mail,
               color: Colors.white,
@@ -84,6 +80,9 @@ class MyDrawer extends StatelessWidget {
               "Contact Us",
               style: TextStyle(color: Colors.white, fontSize: 17),
             ),
+            onTap: (){
+              _launchContactUsURL();
+            },
           ),
           ListTile(
             onTap: (){
