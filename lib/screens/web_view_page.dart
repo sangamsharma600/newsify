@@ -29,34 +29,29 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.blue,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            );
+          },
+        ),
+        // centerTitle: true,
+        // foregroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        title: Image.asset('images/NewsIfy.png',width: 130,),
+        elevation: 0,
+        centerTitle: true,
+      ),
       body: Column(
         children: [
-          const SizedBox(
-            height: 40,
-          ),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  color: Colors.blue,
-                  icon: const Icon(
-                    Icons.keyboard_arrow_left,
-                    size: 32,
-                  ),
-                ),
-                const CustomAppBar(),
-                const Icon(
-                  Icons.details,
-                  color: Colors.transparent,
-                ),
-              ],
-            ),
-            flex: 1,
-          ),
           Expanded(
             flex: 18,
             child: WebView(

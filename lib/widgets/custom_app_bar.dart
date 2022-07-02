@@ -5,19 +5,26 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      // mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        // SizedBox(width: 20,),
-        Text(
-          'News',
-          style: TextStyle(color: Colors.red,letterSpacing: 1.1,fontSize: 19,fontWeight: FontWeight.bold),
-        ),
-        Text(
-          'Ify',
-          style: TextStyle(color: Colors.blue,letterSpacing: 1.1,fontSize: 19,fontWeight: FontWeight.bold),
-        ),
-      ],
+    return AppBar(
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.blue,
+            ),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        },
+      ),
+      // centerTitle: true,
+      // foregroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
+      title: Image.asset('images/NewsIfy.png',width: 130,),
+      elevation: 0,
+      centerTitle: true,
     );
   }
 }

@@ -13,12 +13,18 @@ bool isSpeechPlaying = false;
 bool isNewsScrolled = false;
 
 class HomeScreen extends StatefulWidget {
+
+
+
   const HomeScreen({Key? key}) : super(key: key);
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+
+
   CollectionReference news = FirebaseFirestore.instance.collection('news');
   final PageController _controller = PageController();
   @override

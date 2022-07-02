@@ -45,7 +45,9 @@ class _BlogTileState extends State<BlogTile> {
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
-      child: Column(children: [
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(6),
           child: SizedBox(
@@ -61,11 +63,11 @@ class _BlogTileState extends State<BlogTile> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "News",
+                        "Naulo",
                         style: GoogleFonts.pacifico(fontSize: 30,color: Colors.red),
                       ),
                       Text(
-                        "Ify",
+                        "News",
                         style: GoogleFonts.pacifico(fontSize: 30,color: Colors.blue),
                       ),
                     ],
@@ -105,7 +107,7 @@ class _BlogTileState extends State<BlogTile> {
                     icon: const Icon(Icons.share),
                     onPressed: () {
                       Share.share(
-                          "${widget.title}\n\n${widget.desc}\n\n\nGet Newsify at https://www.linkedin.com/sangamsharma600");
+                          "${widget.title}\n\n${widget.desc}\n\n\nGet NauloNews at https://www.linkedin.com/sangamsharma600");
                     },
                   ),
                 ],
@@ -137,6 +139,7 @@ class _BlogTileState extends State<BlogTile> {
             ),
           ),
         ),
+        const Text("Swipe right to see full news.➡",style: TextStyle(color: Colors.black26,fontSize: 12),)
       ]),
     );
   }
