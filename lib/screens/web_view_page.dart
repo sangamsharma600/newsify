@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:newsify/widgets/article_blog.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../widgets/custom_app_bar.dart';
-
 class WebViewPage extends StatefulWidget {
   const WebViewPage({Key? key}) : super(key: key);
 
@@ -46,7 +44,10 @@ class _WebViewPageState extends State<WebViewPage> {
         // centerTitle: true,
         // foregroundColor: Colors.white,
         backgroundColor: Colors.transparent,
-        title: Image.asset('images/NewsIfy.png',width: 130,),
+        title: Image.asset(
+          'images/NewsIfy.png',
+          width: 130,
+        ),
         elevation: 0,
         centerTitle: true,
       ),

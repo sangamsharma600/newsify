@@ -1,8 +1,10 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, unused_import
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:newsify/screens/no_internet.dart';
+
 import 'package:share_plus/share_plus.dart';
 
 bool isNewsLiked = false;
@@ -12,6 +14,7 @@ int minutes = hourInMin + DateTime.now().minute;
 
 var description;
 var urlLink;
+bool isUrlImage = false;
 
 class BlogTile extends StatefulWidget {
   final String imageUrl;
@@ -28,26 +31,22 @@ class BlogTile extends StatefulWidget {
       required this.title,
       required this.author,
       required this.timestamp,
-      required this.url
-      });
+      required this.url});
 
   @override
   State<BlogTile> createState() => _BlogTileState();
 }
 
 class _BlogTileState extends State<BlogTile> {
-
   @override
   Widget build(BuildContext context) {
-
-   urlLink = widget.url;
+    urlLink = widget.url;
     description = widget.desc;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(6),
           child: SizedBox(
@@ -64,19 +63,22 @@ class _BlogTileState extends State<BlogTile> {
                     children: [
                       Text(
                         "Naulo",
-                        style: GoogleFonts.pacifico(fontSize: 30,color: Colors.red),
+                        style: GoogleFonts.pacifico(
+                            fontSize: 30, color: Colors.red),
                       ),
                       Text(
                         "News",
-                        style: GoogleFonts.pacifico(fontSize: 30,color: Colors.blue),
+                        style: GoogleFonts.pacifico(
+                            fontSize: 30, color: Colors.blue),
                       ),
                     ],
                   ),
                 ),
               ),
               errorWidget: (context, url, error) => const Icon(
-                Icons.error,
-                color: Colors.red,
+                Icons.face_rounded,
+                size: 38,
+                color: Colors.lightBlueAccent,
               ),
             ),
           ),
@@ -139,7 +141,10 @@ class _BlogTileState extends State<BlogTile> {
             ),
           ),
         ),
-        const Text("Swipe right to see full news.➡",style: TextStyle(color: Colors.black26,fontSize: 12),)
+        const Text(
+          "Swipe right to see full news.➡",
+          style: TextStyle(color: Colors.black26, fontSize: 12),
+        )
       ]),
     );
   }

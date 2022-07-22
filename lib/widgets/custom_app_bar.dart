@@ -22,7 +22,10 @@ class CustomAppBar extends StatelessWidget {
       // centerTitle: true,
       // foregroundColor: Colors.white,
       backgroundColor: Colors.transparent,
-      title: Image.asset('images/NewsIfy.png',width: 130,),
+      title: Image.asset(
+        'images/NewsIfy.png',
+        width: 130,
+      ),
       elevation: 0,
       centerTitle: true,
     );
